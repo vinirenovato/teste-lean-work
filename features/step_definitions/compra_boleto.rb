@@ -18,20 +18,19 @@ Quando("faço uma busca por qualquer produto") do |table|
     @header.search_box.set(row[:produto])
     @header.search_button.click
   end
+  step 'escolho qualquer item do resultado para comprar'
+  step 'seleciono um tamanho e clico em comprar'
+  step 'confirmo o pagamento'
 end
 
-Quando("seleciono o qualquer item do resultado") do
+Quando("escolho qualquer item do resultado para comprar") do
   @search_page = SearchPage.new
-  @search_page.random_product
+  @search_page.click_random_product
 end
 
 Quando("seleciono um tamanho e clico em comprar") do
   @product_page = ProductPage.new
-  @product_page.random_product_size
-end
-
-Quando("clico em finalizar a compra") do
-  @product_page.pay_button.click
+  @product_page.click_random_product_size
 end
 
 Quando ("confirmo o pagamento") do
